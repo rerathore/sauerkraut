@@ -2,7 +2,7 @@
 from flask import Flask, render_template, request
 import base64
 #import pickle
-impost json
+import json
 app = Flask(__name__)
 
 
