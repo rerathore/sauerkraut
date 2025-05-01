@@ -1,7 +1,7 @@
 #! /usr/bin/python
 from flask import Flask, render_template, request
 import base64
-import pickle
+import json
 
 app = Flask(__name__)
 
@@ -15,7 +15,7 @@ def my_form():
 def my_form_post():
     try:
         data = base64.urlsafe_b64decode(request.form['text'])
-        output = pickle.loads(data)
+        output = json.loads(data)
     except Exception as e:
         output = e
     return render_template('home.html', code=output)
