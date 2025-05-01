@@ -19,7 +19,8 @@ def my_form_post():
         output = json.loads(decoded_data)
     except Exception as e:
         output = e
-    return render_template('home.html', code=output)
+        print(output)
+    return render_template('home.html', "error")
 
 
 if __name__ == "__main__":
