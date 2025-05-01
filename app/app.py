@@ -14,8 +14,9 @@ def my_form():
 @app.route('/', methods=['POST'])
 def my_form_post():
     try:
-        data = base64.urlsafe_b64decode(request.form['text'])
-        output = json.loads(data)
+        base64_data = request.form['text']
+        decoded_data = base64.urlsafe_b64decode(base64_data).decode('utf-8')
+        output = json.loads(decoded_data)
     except Exception as e:
         output = e
     return render_template('home.html', code=output)
